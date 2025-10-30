@@ -36,7 +36,7 @@ Clone and run the app in **one line** 🚀
 ```bash
 git clone https://github.com/<your-username>/LangLearn.git
 cd LangLearn
-npm install
+npm run setup
 npm run dev
 ```
 
@@ -47,8 +47,6 @@ Then open 👉 **[http://localhost:4200](http://localhost:4200)**
 ## 💾 Database Info
 
 Every time you run the project, the backend automatically:
-
-- 🧹 Resets the SQLite database
 - 🌱 Seeds it with demo data
 
 You’ll start with:
@@ -56,7 +54,7 @@ You’ll start with:
 - **User:** `demo@langlearn.dev`
 - **Password:** `demo1234`
 
-### Seeded Demo Courses:
+### Seeded Demo Courses For Demo User:
 
 | Title                                             | Instructor  | Difficulty |
 | ------------------------------------------------- | ----------- | ---------- |
@@ -71,7 +69,7 @@ At project root (`LangLearn/`):
 
 | Command            | Description                                          |
 | ------------------ | ---------------------------------------------------- |
-| `npm install`      | Installs both frontend and backend dependencies      |
+| `npm run setup`      | Installs both frontend and backend dependencies      |
 | `npm run dev`      | Runs backend (Node.js) + frontend (Angular) together |
 | `npm run server`   | Runs only the Node.js backend                        |
 | `npm run frontend` | Runs only the Angular frontend                       |
@@ -80,7 +78,7 @@ In `/nodejs/` backend:
 
 | Command            | Description                                         |
 | ------------------ | --------------------------------------------------- |
-| `npm run dev`      | Starts backend in dev mode (auto resets DB & seeds) |
+| `npm run dev`      | Starts backend in dev mode                          |
 | `npm run db:reset` | Drops & recreates database with seed data           |
 | `npm run seed`     | Seeds data manually                                 |
 

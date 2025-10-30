@@ -7,10 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "postinstall": "npm --prefix nodejs install && npm --prefix . install",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
-    "server": "npm --prefix nodejs run dev",
-    "frontend": "npm start"
+    "setup": "npm --prefix nodejs ci && npm ci && npm --prefix nodejs run prisma:generate",
+    "server": "npm --prefix nodejs run dev:ready",
+    "frontend": "npm start",
+    "dev": "concurrently -n API,WEB -c magenta,cyan \"npm run server\" \"npm run frontend\""
   },
   "private": true,
   "dependencies": {

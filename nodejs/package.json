@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "db:reset": "npx prisma migrate reset --force --skip-generate --skip-seed && npm run seed",
-    "seed": "ts-node prisma/seed.ts",
-    "build": "tsc -p .",
+    "dev:ready": "prisma generate && ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
     "prisma:gen": "prisma generate",
-    "prisma:migrate": "prisma migrate dev --name init",
-    "prisma:seed": "node --loader ts-node/esm prisma/seed.ts"
+    "db:push": "prisma db push",
+    "db:reset": "npm run db:push -- --force-reset --skip-generate && npm run seed",
+    "seed": "ts-node prisma/seed.ts",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.19.0",
