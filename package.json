@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "setup": "npm --prefix nodejs ci && npm ci && npm --prefix nodejs run prisma:generate",
+    "setup": "npm --prefix nodejs ci && npm ci && npm --prefix nodejs run prisma:gen",
     "server": "npm --prefix nodejs run dev:ready",
     "frontend": "npm start",
     "dev": "concurrently -n API,WEB -c magenta,cyan \"npm run server\" \"npm run frontend\""
