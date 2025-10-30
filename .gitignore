@@ -1,36 +1,64 @@
-# OS
+# ──────────────────────────────
+# OS / system files
+# ──────────────────────────────
 .DS_Store
 Thumbs.db
 
-# Node
+# ──────────────────────────────
+# Root Node modules & logs
+# ──────────────────────────────
 node_modules/
 npm-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-package-lock.json # if you’re using pnpm or yarn; otherwise remove this
 
-# NodeJs
-nodejs/node_modules/
-nodejs/prisma/dev.db
-nodejs/prisma/dev.db-journal
-
-# Env / secrets
-.env
-.env.*
-!.env.example
-
-# Angular
+# ──────────────────────────────
+# Angular build artifacts
+# ──────────────────────────────
 .angular/
 dist/
 coverage/
 *.local.ts
 
-# VSCode / IDE
+# ──────────────────────────────
+# Node.js backend (inside /nodejs)
+# ──────────────────────────────
+nodejs/node_modules/
+nodejs/dist/
+nodejs/build/
+nodejs/prisma/dev.db
+nodejs/prisma/dev.db-journal
+nodejs/.env
+nodejs/.env.*
+
+# ──────────────────────────────
+# Environment files (frontend)
+# ──────────────────────────────
+.env
+.env.*
+!.env.example
+!nodejs/.env.example
+
+# ──────────────────────────────
+# Logs / runtime junk
+# ──────────────────────────────
+*.log
+logs/
+*.pid
+*.seed
+*.sqlite
+
+# ──────────────────────────────
+# Editor / IDE settings
+# ──────────────────────────────
 .vscode/
 .idea/
+*.swp
+*.swo
 
-
-
-# Build artifacts
-*.tgz
-*.zip
+# ──────────────────────────────
+# Build outputs / cache
+# ──────────────────────────────
+tmp/
+out/
+.cache/
