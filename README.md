@@ -1,27 +1,109 @@
-# Langlearn
+# 🌍 LangLearn
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+A full-stack **Language Learning Platform** built with **Angular** and **Node.js + Prisma**.  
+Users can register, browse language courses, enroll, and track their progress — all from a modern responsive interface.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Features
 
-## Code scaffolding
+✅ **User Authentication** — Sign up, log in, and log out securely  
+✅ **Course Management** — View and enroll in available language courses  
+✅ **Progress Tracking** — Track lesson completion and quiz performance  
+✅ **Responsive Design** — Works beautifully on desktop and mobile  
+✅ **Backend API** — Node.js + Prisma + SQLite for easy setup  
+✅ **Auto-Seeded Database** — Starts with demo users and courses  
+✅ **One-Command Startup** — Installs everything and runs both servers together
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 🛠️ Tech Stack
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+| Layer         | Technology                        |
+| ------------- | --------------------------------- |
+| **Frontend**  | Angular 18 + Angular Material     |
+| **Backend**   | Node.js + Express + Prisma ORM    |
+| **Database**  | SQLite (auto-seeded)              |
+| **Styling**   | SCSS + Responsive Grid            |
+| **Dev Tools** | Concurrently, Nodemon, TypeScript |
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## ⚙️ Quick Start
 
-## Running end-to-end tests
+Clone and run the app in **one line** 🚀
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+git clone https://github.com/<your-username>/LangLearn.git
+cd LangLearn
+npm install
+npm run dev
+```
 
-## Further help
+Then open 👉 **[http://localhost:4200](http://localhost:4200)**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 💾 Database Info
+
+Every time you run the project, the backend automatically:
+
+- 🧹 Resets the SQLite database
+- 🌱 Seeds it with demo data
+
+You’ll start with:
+
+- **User:** `demo@langlearn.dev`
+- **Password:** `demo1234`
+
+### Seeded Demo Courses:
+
+| Title                                             | Instructor  | Difficulty |
+| ------------------------------------------------- | ----------- | ---------- |
+| Spanish A1 – Basics                               | Ana García  | Beginner   |
+| Japanese N5 – Introduction to Hiragana & Katakana | Yuki Tanaka | Beginner   |
+
+---
+
+## 🧰 Scripts Overview
+
+At project root (`LangLearn/`):
+
+| Command            | Description                                          |
+| ------------------ | ---------------------------------------------------- |
+| `npm install`      | Installs both frontend and backend dependencies      |
+| `npm run dev`      | Runs backend (Node.js) + frontend (Angular) together |
+| `npm run server`   | Runs only the Node.js backend                        |
+| `npm run frontend` | Runs only the Angular frontend                       |
+
+In `/nodejs/` backend:
+
+| Command            | Description                                         |
+| ------------------ | --------------------------------------------------- |
+| `npm run dev`      | Starts backend in dev mode (auto resets DB & seeds) |
+| `npm run db:reset` | Drops & recreates database with seed data           |
+| `npm run seed`     | Seeds data manually                                 |
+
+---
+
+## 🧪 Test Login
+
+You can immediately log in with the demo credentials:
+
+| Email            | Password |
+| ---------------- | -------- |
+| demo@langlearn.dev | demo1234 |
+
+---
+
+## 🧠 Reviewer Notes
+
+- Backend API runs on: **http://localhost:4000**
+- Frontend Angular app runs on: **http://localhost:4200**
+- All errors (auth, enroll, etc.) are shown via in-app snackbar
+
+---
+
+## 🧾 License
+
+MIT © 2025 — Built by **Cüneyd Ayla**

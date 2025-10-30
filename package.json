@@ -7,7 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dev": "concurrently -n API,WEB -c green,cyan \"npm --prefix nodejs run dev\" \"npm start\""
+    "postinstall": "npm --prefix nodejs install && npm --prefix . install",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "server": "npm --prefix nodejs run dev",
+    "frontend": "npm start"
   },
   "private": true,
   "dependencies": {
