@@ -1,0 +1,71 @@
+<section class="auth-center">
+  <mat-card class="auth-card" appearance="outlined">
+    <h2 class="title">Sign In</h2>
+    <p class="sub">Enter your credentials to continue</p>
+    <form #f="ngForm" (ngSubmit)="submit(f)" novalidate class="auth-form">
+      <mat-form-field appearance="fill" class="field">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          name="email"
+          ngModel
+          required
+          email
+          autocomplete="email"
+        />
+        <mat-error *ngIf="f.controls['email']?.errors?.['required']"
+          >Email is required</mat-error
+        >
+        <mat-error *ngIf="f.controls['email']?.errors?.['email']"
+          >Enter a valid email</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="field">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          name="password"
+          ngModel
+          required
+          minlength="8"
+          autocomplete="current-password"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="hide = !hide"
+          aria-label="Toggle password"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-error *ngIf="f.controls['password']?.errors?.['required']"
+          >Password is required</mat-error
+        >
+        <mat-error *ngIf="f.controls['password']?.errors?.['minlength']"
+          >At least 8 characters</mat-error
+        >
+      </mat-form-field>
+
+      <button
+        mat-flat-button
+        color="primary"
+        class="cta"
+        [disabled]="f.invalid || loading"
+      >
+        Sign In
+      </button>
+
+      <div *ngIf="error" class="error">
+        <mat-icon>error</mat-icon>
+        <span>{{ error }}</span>
+      </div>
+    </form>
+    <div class="foot">
+      Don’t have an account?
+      <a class="link" routerLink="/register">Create one</a>
+    </div>
+  </mat-card>
+</section>

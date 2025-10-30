@@ -1,0 +1,64 @@
+<section class="dashboard">
+  <h2 class="title">My Courses</h2>
+
+  <div class="empty" *ngIf="!(enrollments$ | async)?.length">
+    <p>You haven’t enrolled in any courses yet.</p>
+    <a routerLink="/courses" style="color: white;"
+      >Browse Courses</a
+    >
+  </div>
+
+  <div class="grid" *ngIf="enrollments$ | async as enrollments">
+    <mat-card
+      class="course-card"
+      style="margin-bottom: 25px"
+      *ngFor="let e of enrollments"
+      [routerLink]="['/course', e.course.id]"
+      tabindex="0"
+    >
+      <div class="card-head">
+        <div class="avatar">
+          <mat-icon>school</mat-icon>
+        </div>
+
+        <div class="head-info">
+          <h3 class="course-title">{{ e.course.title }}</h3>
+          <p class="instructor">{{ e.course.instructor }}</p>
+        </div>
+
+        <span class="chip" [ngClass]="e.course.difficulty.toLowerCase()">
+          {{ e.course.difficulty | titlecase }}
+        </span>
+      </div>
+
+      <p class="desc">{{ e.course.description }}</p>
+
+      <div class="progress-section" *ngIf="e.progress">
+        <div class="progress-label">
+          <span>
+            {{ e.progress.completedLessons }}/{{ e.progress.totalLessons }}
+            lessons
+          </span>
+          <span>
+            {{
+              (e.progress.completedLessons / e.progress.totalLessons) * 100
+                | number : "1.0-0"
+            }}%
+          </span>
+        </div>
+
+        <mat-progress-bar
+          mode="determinate"
+          [value]="
+            (e.progress.completedLessons / e.progress.totalLessons) * 100
+          "
+        ></mat-progress-bar>
+
+        <p class="quiz" *ngIf="e.progress.quizScore !== null">
+          Quiz score:
+          <strong>{{ e.progress.quizScore | number : "1.0-1" }}%</strong>
+        </p>
+      </div>
+    </mat-card>
+  </div>
+</section>

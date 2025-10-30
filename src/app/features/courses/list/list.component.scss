@@ -1,0 +1,195 @@
+.page {
+  padding: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-inline: auto;
+}
+
+.page-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.title {
+  margin: 0 0 12px;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 800;
+  color: white;
+}
+
+.loading,
+.empty {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: #6b7280;
+}
+
+/* Skeletons */
+.skeleton-grid {
+  width: 100%;
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .skeleton-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .skeleton-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.skeleton-card {
+  height: 170px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #eef2f7 25%, #f6f8fb 37%, #eef2f7 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.2s infinite;
+}
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+}
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card */
+.course {
+  position: relative;
+  border-radius: 16px;
+  overflow: clip;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid rgba(2, 6, 23, 0.06);
+
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 30px rgba(2, 6, 23, 0.08),
+      0 6px 12px rgba(2, 6, 23, 0.06);
+    outline: none;
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 12px 0 12px;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #4f46e5, #06b6d4);
+    color: #fff;
+  }
+
+  .top-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .chip {
+    height: 24px;
+    border-radius: 999px;
+    font-size: 11px;
+    padding: 0 10px;
+    &.beginner {
+      background: #e0f2fe;
+      color: #075985;
+    } /* sky */
+    &.intermediate {
+      background: #f1f5f9;
+      color: #334155;
+    } /* slate */
+    &.advanced {
+      background: #fee2e2;
+      color: #991b1b;
+    } /* rose */
+  }
+
+  .card-title {
+    margin: 8px 12px 0;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 12px 0;
+    color: #64748b;
+    font-weight: 500;
+    .dot {
+      opacity: 0.6;
+    }
+    mat-icon {
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+      margin-right: 4px;
+    }
+    .instructor,
+    .duration {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+  }
+
+  mat-card-content {
+    padding: 8px 12px 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .desc {
+    margin: 0;
+    color: #334155;
+    display: -webkit-box;
+    flex: 1 1 auto;
+    -webkit-line-clamp: 3; /* clamp to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  mat-card-actions {
+    margin-top: auto;
+    padding: 12px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

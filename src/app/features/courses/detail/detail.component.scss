@@ -1,0 +1,151 @@
+.course-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 24px);
+  color: #f1f5f9;
+
+  .detail-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+
+    .head-main {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      color: white;
+    }
+
+    .title {
+      margin: 0;
+      font-size: clamp(22px, 2.4vw, 28px);
+      font-weight: 800;
+      color: white;
+      line-height: 1.2;
+    }
+
+    .meta {
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      color: #cbd5e1;
+      font-weight: 500;
+
+      mat-icon {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+        margin-right: 2px;
+      }
+
+      .dot {
+        opacity: 0.5;
+      }
+
+      .difficulty {
+        &.Beginner,
+        &.beginner {
+          color: #38bdf8;
+        }
+        &.Intermediate,
+        &.intermediate {
+          color: #facc15;
+        }
+        &.Advanced,
+        &.advanced {
+          color: #f87171;
+        }
+      }
+    }
+
+    .enroll-btn {
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 22px;
+      background: linear-gradient(135deg, #4f46e5, #2563eb);
+      color: #fff;
+      text-transform: none;
+      transition: all 0.2s ease-in-out;
+
+    }
+  }
+
+  .description {
+    margin-top: 24px;
+    h3 {
+      font-size: 18px;
+      color: #e2e8f0;
+      margin-bottom: 8px;
+    }
+    p {
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+  }
+
+  .lessons {
+    margin-top: 32px;
+    h3 {
+      font-size: 18px;
+      color: #e2e8f0;
+      margin-bottom: 12px;
+    }
+
+    ol {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      li {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        padding: 12px 16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        transition: background 0.2s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.08);
+        }
+
+        .lesson-order {
+          font-weight: 700;
+          color: #94a3b8;
+        }
+
+        .lesson-info {
+          strong {
+            display: block;
+            color: #f1f5f9;
+            font-size: 15px;
+          }
+          p {
+            margin: 4px 0 0;
+            color: #cbd5e1;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+<section class="page">
+  <div class="page-head">
+    <h2 class="title">Language Courses</h2>
+  </div>
+
+  <!-- Loading -->
+  <div class="loading" *ngIf="!(courses$ | async) as _; else content">
+    <mat-progress-spinner
+      mode="indeterminate"
+      diameter="32"
+    ></mat-progress-spinner>
+    <div class="skeleton-grid" aria-hidden="true">
+      <div class="skeleton-card" *ngFor="let s of [1, 2, 3, 4, 5, 6]"></div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <ng-template #content>
+    <ng-container *ngIf="courses$ | async as courses; else empty">
+      <div class="grid">
+        <mat-card
+          class="course"
+          *ngFor="let c of courses; trackBy: trackById"
+          tabindex="0"
+        >
+          <div class="card-top">
+            <div class="avatar">
+              <mat-icon>school</mat-icon>
+            </div>
+            <div class="top-right">
+              <mat-chip
+                class="chip"
+                [ngClass]="{
+                  beginner: c.difficulty === 'beginner',
+                  intermediate: c.difficulty === 'intermediate',
+                  advanced: c.difficulty === 'advanced'
+                }"
+                selected
+                disableRipple
+              >
+                {{ c.difficulty | titlecase }}
+              </mat-chip>
+            </div>
+          </div>
+
+          <mat-card-title class="card-title">{{ c.title }}</mat-card-title>
+
+          <mat-card-subtitle class="meta">
+            <span class="instructor">
+              <mat-icon>person</mat-icon> {{ c.instructor }}
+            </span>
+            <span class="dot">•</span>
+            <span class="duration">
+              <mat-icon>schedule</mat-icon> {{ c.durationMin }} min
+            </span>
+          </mat-card-subtitle>
+
+          <mat-card-content>
+            <p class="desc">{{ c.description }}</p>
+          </mat-card-content>
+
+          <mat-card-actions align="end">
+            <a
+              mat-stroked-button
+              color="primary"
+              [routerLink]="['/course', c.id]"
+            >
+              View details
+            </a>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </ng-container>
+
+    <ng-template #empty>
+      <p class="empty">No courses yet.</p>
+    </ng-template>
+  </ng-template>
+</section>

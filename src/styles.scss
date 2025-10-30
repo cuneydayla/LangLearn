@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #0f172a; /* fallback under the shell gradient */
+  color: #e5e7eb;
+}
+
+.toast-success {
+  background: #16a34a !important;
+  color: #fff !important;
+  font-weight: 500;
+}
+.toast-error {
+  background: #dc2626 !important;
+  color: #fff !important;
+  font-weight: 500;
+}
+.toast-info {
+  background: #2563eb !important;
+  color: #fff !important;
+  font-weight: 500;
+}
+
+.mat-mdc-snack-bar-container.toast-container {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  z-index: 10000; /* above header */
+}

@@ -1,0 +1,57 @@
+<ng-container *ngIf="course$ | async as c">
+  <section class="course-detail">
+    <header class="detail-header">
+      <div class="head-main">
+        <div class="icon">
+          <mat-icon>school</mat-icon>
+        </div>
+        <div>
+          <h2 class="title">{{ c.title }}</h2>
+          <p class="meta">
+            <span class="instructor">
+              <mat-icon>person</mat-icon>
+              {{ c.instructor }}
+            </span>
+            <span class="dot">•</span>
+            <span class="duration">
+              <mat-icon>schedule</mat-icon>
+              {{ c.durationMin }} min
+            </span>
+            <span class="dot">•</span>
+            <span class="difficulty" [ngClass]="c.difficulty.toLowerCase()">
+              {{ c.difficulty | titlecase }}
+            </span>
+          </p>
+        </div>
+      </div>
+      <button
+        mat-flat-button
+        color="primary"
+        class="enroll-btn"
+        (click)="enroll(c.id)"
+      >
+        Enroll Now
+      </button>
+    </header>
+
+    <mat-divider></mat-divider>
+
+    <article class="description">
+      <h3>About this course</h3>
+      <p>{{ c.description }}</p>
+    </article>
+
+    <section class="lessons">
+      <h3>Lessons</h3>
+      <ol>
+        <li *ngFor="let l of c.lessons">
+          <span class="lesson-order">{{ l.order }}.</span>
+          <div class="lesson-info">
+            <strong>{{ l.title }}</strong>
+            <p>{{ l.content }}</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+  </section>
+</ng-container>
